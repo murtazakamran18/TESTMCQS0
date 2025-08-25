@@ -1,0 +1,22 @@
+{
+  "name": "mcq-quiz-app",
+  "version": "1.0.0",
+  "description": "Full-featured MCQ Quiz Web App with Teacher/Student roles",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'Build complete'",
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongodb": "^6.3.0"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.0.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

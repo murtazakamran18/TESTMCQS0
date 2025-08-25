@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - QuizMaster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="teacher-theme">
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>📚 Teacher Dashboard</h1>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard">
+            <!-- Add Question Section -->
+            <div class="section-card">
+                <h2>Add New Question</h2>
+                <form id="add-question-form" onsubmit="addQuestion(event)">
+                    <div class="input-group">
+                        <label for="question">Question</label>
+                        <textarea id="question" placeholder="Enter your question here..." required></textarea>
+                    </div>
+                    
+                    <div class="options-grid">
+                        <div class="input-group">
+                            <label for="option1">Option A</label>
+                            <input type="text" id="option1" placeholder="Option A" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="option2">Option B</label>
+                            <input type="text" id="option2" placeholder="Option B" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="option3">Option C</label>
+                            <input type="text" id="option3" placeholder="Option C" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="option4">Option D</label>
+                            <input type="text" id="option4" placeholder="Option D" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="correct-answer">Correct Answer</label>
+                        <select id="correct-answer" required>
+                            <option value="">Select correct answer</option>
+                            <option value="0">Option A</option>
+                            <option value="1">Option B</option>
+                            <option value="2">Option C</option>
+                            <option value="3">Option D</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Question</button>
+                </form>
+            </div>
+
+            <!-- Questions List Section -->
+            <div class="section-card">
+                <h2>Manage Questions</h2>
+                <div class="questions-header">
+                    <span class="questions-count">Total Questions: <span id="questions-count">0</span></span>
+                    <button class="btn btn-secondary" onclick="loadQuestions()">Refresh</button>
+                </div>
+                <div id="questions-list" class="questions-list">
+                    <!-- Questions will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Question Modal -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Question</h2>
+            <form id="edit-question-form" onsubmit="updateQuestion(event)">
+                <input type="hidden" id="edit-question-id">
+                
+                <div class="input-group">
+                    <label for="edit-question">Question</label>
+                    <textarea id="edit-question" required></textarea>
+                </div>
+                
+                <div class="options-grid">
+                    <div class="input-group">
+                        <label for="edit-option1">Option A</label>
+                        <input type="text" id="edit-option1" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-option2">Option B</label>
+                        <input type="text" id="edit-option2" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-option3">Option C</label>
+                        <input type="text" id="edit-option3" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-option4">Option D</label>
+                        <input type="text" id="edit-option4" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="edit-correct-answer">Correct Answer</label>
+                    <select id="edit-correct-answer" required>
+                        <option value="">Select correct answer</option>
+                        <option value="0">Option A</option>
+                        <option value="1">Option B</option>
+                        <option value="2">Option C</option>
+                        <option value="3">Option D</option>
+                    </select>
+                </div>
+
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Question</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

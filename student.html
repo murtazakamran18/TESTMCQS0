@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Quiz - QuizMaster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="student-theme">
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>📚 QuizMaster</h1>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Welcome Section -->
+        <div id="welcome-section" class="section-card">
+            <h2>Welcome to the Quiz!</h2>
+            <p>Enter your name to start the quiz. Answer all questions and submit to see your score.</p>
+            
+            <div class="input-group">
+                <label for="student-name">Your Name</label>
+                <input type="text" id="student-name" placeholder="Enter your full name" required>
+            </div>
+            
+            <button class="btn btn-primary btn-large" onclick="startQuiz()">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quiz-section" class="section-card hidden">
+            <div class="quiz-header">
+                <div class="quiz-progress">
+                    <span>Question <span id="current-question">1</span> of <span id="total-questions">0</span></span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+                <div class="quiz-timer" id="quiz-timer">
+                    <!-- Timer can be added here if needed -->
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h3 id="question-text">Loading question...</h3>
+                <div class="options" id="options-container">
+                    <!-- Options will be loaded here -->
+                </div>
+            </div>
+
+            <div class="quiz-navigation">
+                <button class="btn btn-secondary" id="prev-btn" onclick="previousQuestion()" disabled>Previous</button>
+                <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()">Next</button>
+                <button class="btn btn-success hidden" id="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="section-card hidden">
+            <div class="results-header">
+                <h2>🎉 Quiz Completed!</h2>
+            </div>
+            
+            <div class="results-card">
+                <div class="student-info">
+                    <h3 id="result-name">Student Name</h3>
+                </div>
+                
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="score-percentage">0%</span>
+                    </div>
+                    <div class="score-details">
+                        <p>Score: <span id="score-fraction">0/0</span></p>
+                        <p>Correct Answers: <span id="correct-count">0</span></p>
+                        <p>Wrong Answers: <span id="wrong-count">0</span></p>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+                    <button class="btn btn-secondary" onclick="viewAnswers()">Review Answers</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Answers Section -->
+        <div id="review-section" class="section-card hidden">
+            <h2>Answer Review</h2>
+            <div id="review-content">
+                <!-- Review content will be loaded here -->
+            </div>
+            <button class="btn btn-secondary" onclick="backToResults()">Back to Results</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

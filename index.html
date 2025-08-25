@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz App - Welcome</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-card">
+            <div class="logo">
+                <h1>📚 QuizMaster</h1>
+                <p>Interactive MCQ Quiz Platform</p>
+            </div>
+            
+            <div class="role-selection">
+                <h2>Select Your Role</h2>
+                <div class="role-buttons">
+                    <button class="role-btn teacher-btn" onclick="showPasswordForm('teacher')">
+                        <span class="role-icon">👨‍🏫</span>
+                        <span>Teacher</span>
+                        <small>Manage Questions</small>
+                    </button>
+                    <button class="role-btn student-btn" onclick="showPasswordForm('student')">
+                        <span class="role-icon">👨‍🎓</span>
+                        <span>Student</span>
+                        <small>Take Quiz</small>
+                    </button>
+                </div>
+            </div>
+
+            <div id="password-form" class="password-form hidden">
+                <h3 id="password-title">Enter Password</h3>
+                <div class="input-group">
+                    <input type="password" id="password-input" placeholder="Enter password">
+                    <button id="submit-password" onclick="verifyPassword()">Enter</button>
+                </div>
+                <button class="back-btn" onclick="hidePasswordForm()">← Back</button>
+                <div id="password-error" class="error-message hidden">Incorrect password. Please try again.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
